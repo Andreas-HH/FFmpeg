@@ -2742,6 +2742,9 @@ static int transcode_init(void)
         }
     }
 
+    
+    av_log(NULL, AV_LOG_DEBUG, " xxx about to open encoder xxx \n");
+    
     /* open each encoder */
     for (i = 0; i < nb_output_streams; i++) {
         ost = output_streams[i];
@@ -3540,6 +3543,8 @@ static int transcode(void)
     OutputStream *ost;
     InputStream *ist;
     int64_t timer_start;
+    
+    av_log(NULL, AV_LOG_DEBUG, " xxx transcoding xxx \n");
 
     ret = transcode_init();
     if (ret < 0)
@@ -3570,6 +3575,7 @@ static int transcode(void)
             break;
         }
 
+        av_log(NULL, AV_LOG_DEBUG, " xxx transcoding a step xxx \n");
         ret = transcode_step();
         if (ret < 0) {
             if (ret == AVERROR_EOF || ret == AVERROR(EAGAIN))

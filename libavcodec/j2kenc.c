@@ -999,6 +999,7 @@ static av_cold int j2kenc_init(AVCodecContext *avctx)
 
     s->width = avctx->width;
     s->height = avctx->height;
+    av_log(s->avctx, AV_LOG_DEBUG, "width = %i, height = %i\n", s->width, s->height);
 
     for (i = 0; i < 3; i++)
         s->cbps[i] = 8;

@@ -1198,6 +1198,8 @@ int attribute_align_arg avcodec_open2(AVCodecContext *avctx, const AVCodec *code
 {
     int ret = 0;
     AVDictionary *tmp = NULL;
+    
+    av_log(NULL, AV_LOG_DEBUG, " xxx I am in avcodec_open2 xxx \n");
 
     if (avcodec_is_open(avctx))
         return 0;
